@@ -76,8 +76,13 @@
                 <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
                     <img src="img/img3.jpg" class="wd-32 rounded-circle" alt="">
                     <span class="logged-name">
-                        <span class="hidden-xs-down">{{ Auth::user()->name }}</span> 
-                        <i class="fa fa-angle-down mg-l-3"></i>
+                        @auth
+                            <span>{{ Auth::user()->name }}</span>
+                        @endauth
+
+                        @guest
+                            <span>Tamu</span>
+                        @endguest
                     </span>
                 </a>
                 <div class="dropdown-menu wd-200">
@@ -149,6 +154,12 @@
                         <a href="{{ route('pembelian.tampil') }}" class="nav-link {{ Request::is('pembelian') ? 'active' : '' }}">
                             <i class="fa fa-handshake-o" style="font-size:1.2em"></i>
                             <span>Pembelian</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('Umum.tampil') }}" class="nav-link {{ Request::is('Umum') ? 'active' : '' }}">
+                            <i class="fa fa-user-graduate" style="font-size:1.2em"></i>
+                            <span>Umum</span>
                         </a>
                     </li>
 

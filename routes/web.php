@@ -8,6 +8,16 @@ use App\Http\Controllers\Cpembelian;
 use App\Http\Controllers\Csuplier;
 use App\Http\Controllers\Cpesanan;
 use App\Http\Controllers\Clogin;
+use App\Http\Controllers\Ccobah;
+use App\Http\Controllers\Cumum;
+
+Route::get('/mhs', [Ccobah::class, 'mhs'])->name('cobah.mhs');
+Route::get('/mhs3', [Ccobah::class, 'mhs3'])->name('cobah.mhs3');
+Route::get('/mhs4', [Ccobah::class, 'mhs4'])->name('cobah.mhs4');
+Route::get('/mhs5', [Ccobah::class, 'mh5'])->name('cobah.mhs5');
+Route::get('/mahasiswa', [Ccobah::class, 'index'])->name('cobah.index');
+Route::get('/tambahdata', [Ccobah::class, 'tambahdata'])->name('cobah.tambahdata');
+Route::post('/simpandata', [Ccobah::class, 'simpandata'])->name('cobah.simpandata');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [Clogin::class, 'tampil'])->name('login');
@@ -26,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/suplier', [Csuplier::class, 'tampil'])->name('suplier.tampil');
         Route::get('/pesanan', [Cpesanan::class, 'tampil'])->name('pesanan.tampil');
         Route::get('/pembelian', [Cpembelian::class, 'tampil'])->name('pembelian.tampil');
+        Route::get('/Umum', [Cumum::class, 'tampil'])->name('Umum.tampil');
     });
 
     Route::middleware(['cek_level:admin,kasir'])->group(function () {
@@ -77,5 +88,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/pembelian/{id_pembelian}/ubah', [Cpembelian::class, 'ubah'])->name('pembelian.ubah');
         Route::put('/pembelian/{id_pembelian}/update', [Cpembelian::class, 'update'])->name('pembelian.update');
         Route::delete('/pembelian/{id_pembelian}/hapus', [Cpembelian::class, 'hapus'])->name('pembelian.hapus');
+        // API
+
+        
     });
 });

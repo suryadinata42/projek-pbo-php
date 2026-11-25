@@ -26,7 +26,7 @@ class Cbarang extends Controller
             'nama'  => 'required|min:3|regex:/^[\pL\s]+$/u',
             'harga_beli'=> 'required|numeric|min:1000',
             'harga_jual' => 'required|numeric|min:1000', 
-	]);
+	    ]);
         $foto = $request->file('foto');
         $filename = null;
         if ($foto) {
@@ -98,4 +98,7 @@ class Cbarang extends Controller
         $barang = Mbarang::get();
         return view('barang.ekspor', compact('barang'));
     }
+
+    
+
 }

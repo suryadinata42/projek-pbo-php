@@ -25,9 +25,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+      
     </ul>
 
     <!-- Right navbar links -->
@@ -158,18 +156,20 @@
     <!-- Brand Logo -->
     <a href="{{ asset('aset_amin/index.html') }}" class="brand-link">
       <img src="{{ asset('aset_amin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Toko Sejahtera</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
+  <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{ asset('aset_amin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">
+            {{ Auth::user()->name ?? 'Guest' }}
+          </a>
         </div>
       </div>
 
@@ -192,12 +192,58 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{ route('barang.tampilkan') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-clipboard-list mr-2"></i>
               <p>
                 Barang
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('pembeli.tampilan') }}" class="nav-link">
+              <i class="nav-icon fas fa-users mr-2"></i>
+              <p>
+                Pembeli
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('suplier.tampil') }}" class="nav-link">
+              <i class="nav-icon fas fa-truck mr-2"></i>
+              <p>
+                Suplier
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('pesanan.tampil') }}" class="nav-link">
+              <i class="nav-icon fas fa-receipt mr-2"></i>
+              <p>
+                Pesanan
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('pembelian.tampil') }}" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart mr-2"></i>
+              <p>
+                Pembelian
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('Umum.tampil') }}" class="nav-link">
+              <i class="nav-icon fas fa-user-graduate mr-2"></i>
+              <p>
+                Umum
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
